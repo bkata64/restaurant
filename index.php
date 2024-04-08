@@ -8,8 +8,8 @@ if ($_SERVER['DEPLOYMENT_MODE'] === "DEV") {
 
 require './router.php';
 require './slugifier.php';
-require './dishes.php';
 require './dishTypes.php';
+require './dishes.php';
 require './auth.php';
 
 $method = $_SERVER["REQUEST_METHOD"];
