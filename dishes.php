@@ -43,7 +43,7 @@ function dishCreateHandler() {
         "dishTypeId" =>  $_POST['dishTypeId'],
     ]);
 
-    header('Location: /etterem/admin?info=createSuccessful'); 
+    header('Location: /admin?info=createSuccessful'); 
 }
 function dishUpdateHandler($vars) {  
     /* UPDATE dishes SET `name` = ?, `slug` = ?, `description` = ?, `price` = ?, `isActive` = ?, `dishTypeId` = ? WHERE `id` = ?;  */
@@ -59,7 +59,7 @@ function dishUpdateHandler($vars) {
         (int)$_POST["dishTypeId"],
         (int)$vars['dishId']
     ]);
-    header('Location: /etterem/admin?info=updateSuccessful'); 
+    header('Location: /admin?info=updateSuccessful'); 
 }
 
 function dishDeleteHandler($vars) { 
@@ -68,7 +68,7 @@ function dishDeleteHandler($vars) {
     $pdo = getConnection();
     $statement = $pdo->prepare("DELETE FROM dishes WHERE id = ?");
     $statement->execute([$vars['id']]);
-    header('Location: /etterem/admin?info=deleteSuccessful');
+    header('Location: /admin?info=deleteSuccessful');
 }
 
 

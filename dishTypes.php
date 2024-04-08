@@ -23,7 +23,7 @@ function dishTypeCreateHandler() {
         slugify($_POST["name"]),
         filter_var($_POST["description"], FILTER_SANITIZE_STRING)        
     ]);
-    header('Location: /etterem/admin/etel-tipusok'); 
+    header('Location: /admin/etel-tipusok'); 
 }
 
 function getAllDishTypes($pdo)

@@ -7,20 +7,20 @@ function loginHandler() {
     if (!$user) {
         //header('Location: ' . getPathWithId($_SERVER['HTTP_REFERER']) . '?info=invalidCredentials');
         // javított sor:  
-        header('Location: /etterem/admin?info=invalidCredentials');  
+        header('Location: /admin?info=invalidCredentials');  
         return;
     }
     $isVerified = password_verify($_POST['password'], $user["password"]);    
     if(!$isVerified) {
         //header('Location: ' . getPathWithId($_SERVER['HTTP_REFERER']) . '?info=invalidCredentials');
         // javított sor:  
-        header('Location: /etterem/admin?info=invalidCredentials'); 
+        header('Location: /admin?info=invalidCredentials'); 
         return;
     }
     session_start();  
     $_SESSION['userId'] = $user['id']; 
     //header('Location: ' . getPathWithId($_SERVER['HTTP_REFERER']));
-    header('Location: /etterem/admin');
+    header('Location: /admin');
 }
 
 function logoutHandler() {     
@@ -29,7 +29,7 @@ function logoutHandler() {
     setcookie(session_name(),  '', 0, $params['path'], $params['domain'], $params['secure'], isset($params['httponly']));
     session_destroy(); 
     //header('Location: ' . getPathWithId($_SERVER['HTTP_REFERER']));
-    header('Location: /etterem/');
+    header('Location: /');
 }
 
 // új függvény
@@ -38,7 +38,7 @@ function redirectToLoginPageIfNotLoggedIn()
     if(isLoggedIn()) {
         return;
     }
-    header('Location: /etterem/admin');
+    header('Location: /admin');
     exit;
 }
 

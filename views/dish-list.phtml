@@ -39,11 +39,11 @@
                 </span>
               <? endif ?>  
               <!-- <a href=" nem jó: <php-ban: ?= './admin/etel-szerkesztese/' .$dish['slug'] ?>"> -->
-              <a href="/etterem/admin/etel-szerkesztese/<?= $dish['slug'] ?>">
+              <a href="/admin/etel-szerkesztese/<?= $dish['slug'] ?>">
                 <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
               </a>              
               <!-- <form action="<nem jó:?= './admin/delete-dish/' . $dish['id'] ?>" method="POST" class="d-inline-block"> -->
-              <form action="/etterem/admin/delete-dish/<?= $dish['id'] ?>" method="POST" class="d-inline-block">
+              <form action="/admin/delete-dish/<?= $dish['id'] ?>" method="POST" class="d-inline-block">
                 <button class="btn btn-sm btn-outline-danger">Törlés</button>
               </form>
             </div>

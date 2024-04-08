@@ -1,5 +1,11 @@
 <?php
 
+if ($_SERVER['DEPLOYMENT_MODE'] === "DEV") {
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
+    error_reporting(E_ALL);
+}
+
 require './router.php';
 require './slugifier.php';
 require './dishes.php';
@@ -13,17 +19,17 @@ $path = $parsed['path'];
 // Útvonalak regisztrálása
 $routes = [
     // [method, útvonal, handlerFunction],
-    ['GET', '/etterem/', 'homeHandler'],
-    ['GET', '/etterem/admin', 'adminHandler'],
-    ['GET', '/etterem/admin/uj-etel-letrehozasa', 'dishCreateFormHandler'],
-    ['GET', '/etterem/admin/etel-tipusok', 'dishTypeCreateFormHandler'],
-    ['POST', '/etterem/admin/login', 'loginHandler'],
-    ['GET', '/etterem/admin/etel-szerkesztese/{keresoBaratNev}', 'dishEditHandler'],
-    ['POST', '/etterem/logout', 'logoutHandler'],
-    ['POST', '/etterem/admin/create-dish', 'dishCreateHandler'],
-    ['POST', '/etterem/admin/create-dish-type', 'dishTypeCreateHandler'],
-    ['POST', '/etterem/admin/delete-dish/{id}', 'dishDeleteHandler'],
-    ['POST', '/etterem/admin/update-dish/{dishId}', 'dishUpdateHandler'],
+    ['GET', '/', 'homeHandler'],
+    ['GET', '/admin', 'adminHandler'],
+    ['GET', '/admin/uj-etel-letrehozasa', 'dishCreateFormHandler'],
+    ['GET', '/admin/etel-tipusok', 'dishTypeCreateFormHandler'],
+    ['POST', '/admin/login', 'loginHandler'],
+    ['GET', '/admin/etel-szerkesztese/{keresoBaratNev}', 'dishEditHandler'],
+    ['POST', '/logout', 'logoutHandler'],
+    ['POST', '/admin/create-dish', 'dishCreateHandler'],
+    ['POST', '/admin/create-dish-type', 'dishTypeCreateHandler'],
+    ['POST', '/admin/delete-dish/{id}', 'dishDeleteHandler'],
+    ['POST', '/admin/update-dish/{dishId}', 'dishUpdateHandler'],
 ];
 
 // Útvonalválasztó inicializálása
