@@ -1,0 +1,545 @@
+<section class="ftco-section">  
+  <div class="container">
+    <?php if ($params['info'] == "createSuccessful") : ?>
+        <div class="alert alert-success">
+            Új étel létrehozása sikeres!
+        </div>
+    <?php endif ?>
+    <?php if ($params['info'] == "updateSuccessful") : ?>
+        <div class="alert alert-success">
+            Étel módosítása sikeres!
+        </div>
+    <?php endif ?>
+    <?php if ($params['info'] == "deleteSuccessful") : ?>
+        <div class="alert alert-success">
+            Étel törlése sikeres!
+        </div>
+    <?php endif ?>
+    <a href="./admin/uj-etel-letrehozasa">
+      <button class="btn btn-outline-success mb-4">Új létrehozása</button>
+    </a>
+    <div class="row">
+      <div class="col-md-12">
+      <? foreach ($params['dishes'] as $dish): ?>
+        <div class="row mb-3">
+          <!-- <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 border rounded border-danger border-style-dotted"> -->
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 <?= !$dish['isActive'] ? 'border rounded border-danger border-style-dotted' : '' ?>">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span><?= $dish['name'] ?></span></h3>
+                <span class="price"><?= $dish['price'] ?> Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                <?= $dish['description'] ?> </p>
+              </div>
+              <? if(!$dish['isActive']) : ?>
+                <span class="text-danger float-right pl-2 pr-2">
+                  Inaktív
+                </span>
+              <? endif ?>  
+              <!-- <a href=" nem jó: <php-ban: ?= './admin/etel-szerkesztese/' .$dish['slug'] ?>"> -->
+              <a href="/etterem/admin/etel-szerkesztese/<?= $dish['slug'] ?>">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>              
+              <!-- <form action="<nem jó:?= './admin/delete-dish/' . $dish['id'] ?>" method="POST" class="d-inline-block"> -->
+              <form action="/etterem/admin/delete-dish/<?= $dish['id'] ?>" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      <?php endforeach; ?>
+        <!-- <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 border rounded border-danger border-style-dotted">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Sütőtöklé</span></h3>
+                <span class="price">350 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Sütőtökből készült narancssárga színvilágú szénsavmentes üdítőital. </p>
+              </div>
+              <span class="text-danger float-right pl-2 pr-2">
+                Inaktív
+              </span>
+              <a href="/admin/etel-szerkesztese/sutotokle">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/24" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Meggylé</span></h3>
+                <span class="price">280 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Meggyből készült szénsavmentes üdítőital. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/meggyle">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/23" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Zöld kóla</span></h3>
+                <span class="price">290 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Zöld színű szénsavas üdítőital. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/zold-kola">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/22" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Sárga kóla</span></h3>
+                <span class="price">290 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Sárga színű szénsavas üdítőital. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/sarga-kola">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/21" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Nagymarosi ásványvíz</span></h3>
+                <span class="price">270 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Ásványvíz számtalan buborékkal. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/nagymarosi-asvanyviz">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/20" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Bambi</span></h3>
+                <span class="price">310 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Narancsolajból készült retro üdítőital a pincéből. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/bambi">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/19" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Túrógombóc</span></h3>
+                <span class="price">790 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Túróból, búzadarából, tojásból és fagyasztott málnából, tejföllel és porcukorral megszórva. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/turogomboc">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/18" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Almás pite</span></h3>
+                <span class="price">750 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Almából és pitéből. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/almas-pite">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/17" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Gundel palacsinta</span></h3>
+                <span class="price">980 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Csokis öntet, dió és palacsinta. Tűzforró ízélmény! </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/gundel-palacsinta">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/16" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Palacsinta</span></h3>
+                <span class="price">750 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Három darab palacsinta, kakaóból, lekvárból és palacsintából. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/palacsinta">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/15" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Almásrétes</span></h3>
+                <span class="price">750 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Almából és rétesből. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/almasretes">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/14" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 border rounded border-danger border-style-dotted">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Sütőtökös sajtos makaróni (kis adag)</span></h3>
+                <span class="price">550 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Igazi őszi desszert. </p>
+              </div>
+              <span class="text-danger float-right pl-2 pr-2">
+                Inaktív
+              </span>
+              <a href="/admin/etel-szerkesztese/sutotokos-sajtos-makaroni-kis-adag">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/13" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Sült csirkemell parajos penne tésztával</span></h3>
+                <span class="price">2250 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Egyértelműen Popeye kedvence! </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/sult-csirkemell-parajos-penne-tesztaval">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/12" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Rántott szelet burgonyapürével és kukoricasalátával</span></h3>
+                <span class="price">2560 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Igazi ünnepi főétel, rendkívül finom!!! </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/rantott-szelet-burgonyapurevel-es-kukoricasalataval">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/11" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Svéd húsgolyó</span></h3>
+                <span class="price">1550 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Zamatos sűrített paradicsomból, friss káposztából készült paradicsomos káposzta húsgombóccal. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/sved-husgolyo">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/10" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Rakott kelkáposzta</span></h3>
+                <span class="price">1750 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Sajt, tejföl, kelkáposzta, darált hús egymásra helyezve tetszőleges sorrendben, majd kisütve. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/rakott-kelkaposzta">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/9" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Párizsias csirkemell rizzsel</span></h3>
+                <span class="price">1950 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Finom rántott csirkemell párizsias bundában. Megfelelően ropogós. Párolt rizs körettel tálaljuk. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/parizsias-csirkemell-rizzsel">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/8" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Sertéspörkölt</span></h3>
+                <span class="price">1850 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Sertéspörkölt magyarosan. Nem is kell ehhez semmi mást hozzáfűzni! </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/sertesporkolt">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/7" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Frankfurti leves</span></h3>
+                <span class="price">880 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Virsli, tejfölös habarás és kelkáposzta. Mennyei ízvilág! </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/frankfurti-leves">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/6" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Meggyleves</span></h3>
+                <span class="price">690 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Tejszínes, zamatos hideg gyümölcsleves, laktózt igen, magokat elvétve, kukacokat remélhetőleg nem tartalmaz. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/meggyleves">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/5" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Tojásleves</span></h3>
+                <span class="price">590 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Őrölt köménnyel, paprikás rántással készült leves változatos méretű tyúktojásokból, csurgatva. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/tojasleves">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/4" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 border rounded border-danger border-style-dotted">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Sütőtök krémleves</span></h3>
+                <span class="price">890 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Halloweeni hangulat az év (szinte) minden napján - szigorúan étkezési célú sütőtökből készült, ízletes őszi leves! </p>
+              </div>
+              <span class="text-danger float-right pl-2 pr-2">
+                Inaktív
+              </span>
+              <a href="/admin/etel-szerkesztese/sutotok-kremleves">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/3" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Húsleves</span></h3>
+                <span class="price">690 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Csirkehúsból, gyökérzöldségekből és leveskockából készült ízletes leves. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/husleves">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/2" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="pricing-entry d-flex mr-2 ml-2 pt-2 pb-2 ">
+            <div class="desc pl-3">
+              <div class="d-flex text align-items-center">
+                <h3><span>Borsóleves</span></h3>
+                <span class="price">700 Ft</span>
+              </div>
+              <div class="d-block">
+                <p>
+                  Zsenge mirelit borsóból és mélyhűtött zöldségekből készült rendkívül ízletes tavaszi leves. </p>
+              </div>
+              <a href="/admin/etel-szerkesztese/borsoleves">
+                <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
+              </a>
+              <form action="/delete-dish/1" method="POST" class="d-inline-block">
+                <button class="btn btn-sm btn-outline-danger">Törlés</button>
+              </form>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>

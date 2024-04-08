@@ -1,0 +1,338 @@
+<!-- <section class="ftco-section"> -->
+    <div class="container">
+        <div class="row">
+            <? foreach ($params['dishes'] as $dishtype): ?>
+                <div class="col-md-6 mb-5 pb-3">
+                    <h3 class="mb-5 heading-pricing ftco-animate fadeInUp ftco-animated"><?= $dishtype['name'] ?></h3>
+                    <? foreach ($dishtype['dishes'] as $dish): ?>
+                        <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                            <div class="desc pl-3">
+                                <div class="d-flex text align-items-center">
+                                    <h3>
+                                        <span>
+                                        <?= $dish['name'] ?> </span>
+                                    </h3>
+                                    <span class="price"><?= $dish['price'] ?> Ft</span>
+                                </div>
+                                <div class="d-block">
+                                    <p><?= $dish['description'] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+                <!-- <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Húsleves </span>
+                            </h3>
+                            <span class="price">690 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Csirkehúsból, gyökérzöldségekből és leveskockából készült ízletes leves. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Tojásleves </span>
+                            </h3>
+                            <span class="price">590 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Őrölt köménnyel, paprikás rántással készült leves változatos méretű tyúktojásokból, csurgatva. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Meggyleves </span>
+                            </h3>
+                            <span class="price">690 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Tejszínes, zamatos hideg gyümölcsleves, laktózt igen, magokat elvétve, kukacokat remélhetőleg nem tartalmaz. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Frankfurti leves </span>
+                            </h3>
+                            <span class="price">880 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Virsli, tejfölös habarás és kelkáposzta. Mennyei ízvilág! </p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="col-md-6 mb-5 pb-3">
+                <h3 class="mb-5 heading-pricing ftco-animate fadeInUp ftco-animated">Főételek</h3>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Sertéspörkölt </span>
+                            </h3>
+                            <span class="price">1850 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Sertéspörkölt magyarosan. Nem is kell ehhez semmi mást hozzáfűzni! </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Párizsias csirkemell rizzsel </span>
+                            </h3>
+                            <span class="price">1950 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Finom rántott csirkemell párizsias bundában. Megfelelően ropogós. Párolt rizs körettel tálaljuk. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Rakott kelkáposzta </span>
+                            </h3>
+                            <span class="price">1750 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Sajt, tejföl, kelkáposzta, darált hús egymásra helyezve tetszőleges sorrendben, majd kisütve. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Svéd húsgolyó </span>
+                            </h3>
+                            <span class="price">1550 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Zamatos sűrített paradicsomból, friss káposztából készült paradicsomos káposzta húsgombóccal. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Rántott szelet burgonyapürével és kukoricasalátával </span>
+                            </h3>
+                            <span class="price">2560 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Igazi ünnepi főétel, rendkívül finom!!! </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Sült csirkemell parajos penne tésztával </span>
+                            </h3>
+                            <span class="price">2250 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Egyértelműen Popeye kedvence! </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-5 pb-3">
+                <h3 class="mb-5 heading-pricing ftco-animate fadeInUp ftco-animated">Desszertek</h3>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Almásrétes </span>
+                            </h3>
+                            <span class="price">750 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Almából és rétesből. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Palacsinta </span>
+                            </h3>
+                            <span class="price">750 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Három darab palacsinta, kakaóból, lekvárból és palacsintából. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Gundel palacsinta </span>
+                            </h3>
+                            <span class="price">980 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Csokis öntet, dió és palacsinta. Tűzforró ízélmény! </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Almás pite </span>
+                            </h3>
+                            <span class="price">750 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Almából és pitéből. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Túrógombóc </span>
+                            </h3>
+                            <span class="price">790 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Túróból, búzadarából, tojásból és fagyasztott málnából, tejföllel és porcukorral megszórva. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-5 pb-3">
+                <h3 class="mb-5 heading-pricing ftco-animate fadeInUp ftco-animated">Italok</h3>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Bambi </span>
+                            </h3>
+                            <span class="price">310 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Narancsolajból készült retro üdítőital a pincéből. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Nagymarosi ásványvíz </span>
+                            </h3>
+                            <span class="price">270 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Ásványvíz számtalan buborékkal. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Sárga kóla </span>
+                            </h3>
+                            <span class="price">290 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Sárga színű szénsavas üdítőital. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Zöld kóla </span>
+                            </h3>
+                            <span class="price">290 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Zöld színű szénsavas üdítőital. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+                    <div class="desc pl-3">
+                        <div class="d-flex text align-items-center">
+                            <h3>
+                                <span>
+                                    Meggylé </span>
+                            </h3>
+                            <span class="price">280 Ft</span>
+                        </div>
+                        <div class="d-block">
+                            <p>
+                                Meggyből készült szénsavmentes üdítőital. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+<!-- </section> -->
