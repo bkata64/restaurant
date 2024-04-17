@@ -33,11 +33,11 @@
                 <p>
                 <?= $dish['description'] ?> </p>
               </div>
-              <? if(!$dish['isActive']) : ?>
+              <?php if(!$dish['isActive']) : ?>
                 <span class="text-danger float-right pl-2 pr-2">
                   Inaktív
                 </span>
-              <? endif ?>  
+              <?php endif; ?>  
               <!-- <a href=" nem jó: <php-ban: ?= './admin/etel-szerkesztese/' .$dish['slug'] ?>"> -->
               <a href="/admin/etel-szerkesztese/<?= $dish['slug'] ?>">
                 <button class="btn btn-sm btn-outline-warning">Szerkesztés</button>
